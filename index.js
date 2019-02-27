@@ -11,32 +11,38 @@ const APP_ID = undefined;
 const HELP_MESSAGE = 'HELP MESSAGE';
 const HELP_REPROMPT = 'What can I help you with?';
 
-//Alexa will speak out the stop message when the program ends 
+//Alexa will speak out the stop message when the program ends
 const STOP_MESSAGE = 'Goodbye!';
 const FALLBACK_MESSAGE = 'I dont recognize that';
 
 const handlers = {
     'LaunchRequest': function () {
-      var speechOutput = "Welcome to Madlibs. First, please give me an adjective";
+      var speechOutput = "Hi! Welcome to Allysons's Madlibs! First, give me a name";
       this.response.speak(speechOutput).listen("What would you like to do?");
       this.emit(':responseReady');
     },
-    'getAdjectiveIntent': function () {
-        this.attributes.adjective = this.event.request.intent.slots.myAdjective.value;
-        var speechOutput = "Okay! Thanks! Now please give me a name";
-        this.response.speak(speechOutput);
-        this.emit(':responseReady');
-    },
     'getNameIntent': function () {
-        this.attributes.name= this.event.request.intent.slots.myName.value;
-        var speechOutput = "Okay! Thanks! Now please give me a verb";
-        this.response.speak(speechOutput).listen();
+        var speechOutput = "Thanks. Now please give me a verb";
+        this.attributes.name = this.event.request.intent.slots.myName.value;
+        var speechReprompt = "Let me say this again, this is my very first intent";
+        this.response.speak(speechOutput).listen(speechReprompt);
         this.emit(':responseReady');
     },
     'getVerbIntent': function () {
+        var speechOutput = "Thanks. Now please give me an adjective";
         this.attributes.verb = this.event.request.intent.slots.myVerb.value;
-        var speechOutput = "Okay! Thanks! Once upon a time "+ this.attributes.name+" went "+this.attributes.verb+"ing all the way to the mall because "+ this.attributes.name + " was "+ this.attributes.adjective;
-        this.response.speak(speechOutput);
+        var speechReprompt = "Let me say this again, this is my very first intent";
+        this.response.speak(speechOutput).listen(speechReprompt);
+        this.emit(':responseReady');
+    },
+        'getAdjectiveIntent': function () {
+        
+        this.attributes.adjective = this.event.request.intent.slots.myAdjective.value;
+        var speechOutput = "Thanks. Here is the story : Once upon a time, "+this.attributes.name 
+        + " went on a long journey through the forest. "+ this.attributes.name+ " was very "+ this.attributes.adjective +" for this adventure! " +
+        this.attributes.name + " was "+ this.attributes.verb + "ing the entire time";
+        var speechReprompt = "Let me say this again, this is my very first intent";
+        this.response.speak(speechOutput).listen(speechReprompt);
         this.emit(':responseReady');
     },
     'AMAZON.HelpIntent': function () {
@@ -70,3 +76,4 @@ exports.handler = function (event, context, callback) {
     alexa.registerHandlers(handlers);
     alexa.execute();
 };
+    
