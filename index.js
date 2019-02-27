@@ -17,7 +17,7 @@ const FALLBACK_MESSAGE = 'I dont recognize that';
 
 const handlers = {
     'LaunchRequest': function () {
-      var speechOutput = "Hi! Welcome to Allysons's Madlibs! First, give me a name";
+      var speechOutput = "Hi! Welcome to Allyson's Madlibs! We are going to be creating a story. First, give me a name";
       this.response.speak(speechOutput).listen("What would you like to do?");
       this.emit(':responseReady');
     },
