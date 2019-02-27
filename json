@@ -1,0 +1,68 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "allyson mad libs",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "getVerbIntent",
+                    "slots": [
+                        {
+                            "name": "myVerb",
+                            "type": "AMAZON.Color"
+                        }
+                    ],
+                    "samples": [
+                        "I choose verb {myVerb}"
+                    ]
+                },
+                {
+                    "name": "getNameIntent",
+                    "slots": [
+                        {
+                            "name": "myName",
+                            "type": "AMAZON.US_FIRST_NAME"
+                        }
+                    ],
+                    "samples": [
+                        "I choose the name {myName}"
+                    ]
+                },
+                {
+                    "name": "getAdjectiveIntent",
+                    "slots": [
+                        {
+                            "name": "myAdjective",
+                            "type": "AMAZON.Color"
+                        }
+                    ],
+                    "samples": [
+                        "I want the adjective {myAdjective}",
+                        "I pick the adjective {myAdjective}",
+                        "I choose the adjective {myAdjective}"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
