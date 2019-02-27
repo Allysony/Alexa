@@ -1,8 +1,12 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "allyson mad libs",
+            "invocationName": "mad allyson",
             "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
                 {
                     "name": "AMAZON.CancelIntent",
                     "samples": []
@@ -20,8 +24,16 @@
                     "samples": []
                 },
                 {
-                    "name": "AMAZON.FallbackIntent",
-                    "samples": []
+                    "name": "getNameIntent",
+                    "slots": [
+                        {
+                            "name": "myName",
+                            "type": "AMAZON.US_FIRST_NAME"
+                        }
+                    ],
+                    "samples": [
+                        "i choose the name {myName}"
+                    ]
                 },
                 {
                     "name": "getVerbIntent",
@@ -32,19 +44,7 @@
                         }
                     ],
                     "samples": [
-                        "I choose verb {myVerb}"
-                    ]
-                },
-                {
-                    "name": "getNameIntent",
-                    "slots": [
-                        {
-                            "name": "myName",
-                            "type": "AMAZON.US_FIRST_NAME"
-                        }
-                    ],
-                    "samples": [
-                        "I choose the name {myName}"
+                        "I choose the verb {myVerb}"
                     ]
                 },
                 {
@@ -56,9 +56,7 @@
                         }
                     ],
                     "samples": [
-                        "I want the adjective {myAdjective}",
-                        "I pick the adjective {myAdjective}",
-                        "I choose the adjective {myAdjective}"
+                        "i choose the adjective {myAdjective}"
                     ]
                 }
             ],
